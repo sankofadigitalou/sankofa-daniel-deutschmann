@@ -62,6 +62,7 @@
     "@context": "https://schema.org",
     "@type": "MusicAlbum",
     "name": "Einfach (ich) sein",
+    "numTracks": 11,
     "byArtist": {
       "@type": "Person",
       "name": "Daniel Deutschmann",
@@ -69,8 +70,28 @@
     },
     "image": "https://deutschmann.sankofa-ngo.org/album-einfach-ich-sein.png",
     "genre": ["Afro Deutschrap", "Spoken Word", "Cinematic"],
-    "description": "Debütalbum von Daniel Deutschmann. Ein Album über das Ankommen bei sich selbst — zwischen den Welten, zwischen den Erwartungen.",
-    "inLanguage": "de"
+    "description": "Debütalbum von Daniel Deutschmann. 11 Songs über das Ankommen bei sich selbst — zwischen den Welten, zwischen den Erwartungen.",
+    "inLanguage": "de",
+    "track": {
+      "@type": "ItemList",
+      "numberOfItems": 11,
+      "itemListElement": [
+        { "@type": "MusicRecording", "name": "Machen wir's", "position": 1 },
+        { "@type": "MusicRecording", "name": "Neuanfang in Ghana", "position": 2 },
+        { "@type": "MusicRecording", "name": "Mein eigener Weg", "position": 3 },
+        { "@type": "MusicRecording", "name": "Neuer Morgen in Ghana", "position": 4 },
+        { "@type": "MusicRecording", "name": "Wenn du mich liebst", "position": 5 },
+        { "@type": "MusicRecording", "name": "Wurzeln im Wind", "position": 6 },
+        { "@type": "MusicRecording", "name": "Mit Vollgas voraus (Nilua Cover)", "position": 7 },
+        { "@type": "MusicRecording", "name": "Unsere Energie", "position": 8 },
+        { "@type": "MusicRecording", "name": "Zurück in meinem Zimmer", "position": 9 },
+        { "@type": "MusicRecording", "name": "4444", "position": 10, "byArtist": [
+          { "@type": "Person", "name": "Daniel Deutschmann" },
+          { "@type": "Person", "name": "Nilua" }
+        ]},
+        { "@type": "MusicRecording", "name": "Kein Zahnrad mehr", "position": 11 }
+      ]
+    }
   }
   </script>
 
@@ -1182,6 +1203,121 @@
       flex-wrap: wrap;
     }
 
+    /* Tracklist */
+    .tracklist {
+      margin-top: 60px;
+    }
+
+    .tracklist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 24px;
+    }
+
+    .tracklist-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .tracklist-count {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .tracklist-list {
+      list-style: none;
+      border-top: 1px solid var(--border);
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 36px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 14px 8px;
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s var(--transition);
+    }
+
+    .track:hover {
+      background: var(--bg-elevated);
+      padding-left: 16px;
+    }
+
+    .track-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: right;
+    }
+
+    .track:hover .track-num {
+      color: var(--gold);
+    }
+
+    .track-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .track-feat {
+      font-weight: 400;
+      color: var(--gold);
+      font-size: 0.85rem;
+    }
+
+    .track-tag {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      white-space: nowrap;
+    }
+
+    .track:hover .track-tag {
+      border-color: var(--border-hover);
+    }
+
+    .tracklist-phases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .phase {
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+
+    .phase-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .phase-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
     .music-genres {
       display: flex;
       gap: 12px;
@@ -1946,6 +2082,112 @@
                 <a href="#" class="btn" data-lang="de">Vorbestellen</a>
                 <a href="#" class="btn" data-lang="en">Pre-order</a>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tracklist -->
+        <div class="tracklist reveal">
+          <div class="tracklist-header">
+            <h3 class="tracklist-title">Tracklist</h3>
+            <span class="tracklist-count">11 Songs</span>
+          </div>
+
+          <ol class="tracklist-list">
+            <li class="track">
+              <span class="track-num">01</span>
+              <span class="track-name">Machen wir's</span>
+              <span class="track-tag" data-lang="de">Aufbruch</span>
+              <span class="track-tag" data-lang="en">Departure</span>
+            </li>
+            <li class="track">
+              <span class="track-num">02</span>
+              <span class="track-name">Neuanfang in Ghana</span>
+              <span class="track-tag" data-lang="de">Reise</span>
+              <span class="track-tag" data-lang="en">Journey</span>
+            </li>
+            <li class="track">
+              <span class="track-num">03</span>
+              <span class="track-name">Mein eigener Weg</span>
+              <span class="track-tag" data-lang="de">Identität</span>
+              <span class="track-tag" data-lang="en">Identity</span>
+            </li>
+            <li class="track">
+              <span class="track-num">04</span>
+              <span class="track-name">Neuer Morgen in Ghana</span>
+              <span class="track-tag" data-lang="de">Reise</span>
+              <span class="track-tag" data-lang="en">Journey</span>
+            </li>
+            <li class="track">
+              <span class="track-num">05</span>
+              <span class="track-name">Wenn du mich liebst</span>
+              <span class="track-tag" data-lang="de">Emotion</span>
+              <span class="track-tag" data-lang="en">Emotion</span>
+            </li>
+            <li class="track">
+              <span class="track-num">06</span>
+              <span class="track-name">Wurzeln im Wind</span>
+              <span class="track-tag" data-lang="de">Wurzeln</span>
+              <span class="track-tag" data-lang="en">Roots</span>
+            </li>
+            <li class="track">
+              <span class="track-num">07</span>
+              <span class="track-name">Mit Vollgas voraus <span class="track-feat">(Nilua Cover)</span></span>
+              <span class="track-tag" data-lang="de">Energie</span>
+              <span class="track-tag" data-lang="en">Energy</span>
+            </li>
+            <li class="track">
+              <span class="track-num">08</span>
+              <span class="track-name">Unsere Energie</span>
+              <span class="track-tag" data-lang="de">Verbindung</span>
+              <span class="track-tag" data-lang="en">Connection</span>
+            </li>
+            <li class="track">
+              <span class="track-num">09</span>
+              <span class="track-name">Zurück in meinem Zimmer</span>
+              <span class="track-tag" data-lang="de">Reflexion</span>
+              <span class="track-tag" data-lang="en">Reflection</span>
+            </li>
+            <li class="track">
+              <span class="track-num">10</span>
+              <span class="track-name">4444 <span class="track-feat">(feat. Nilua)</span></span>
+              <span class="track-tag" data-lang="de">Kollaboration</span>
+              <span class="track-tag" data-lang="en">Collaboration</span>
+            </li>
+            <li class="track">
+              <span class="track-num">11</span>
+              <span class="track-name">Kein Zahnrad mehr</span>
+              <span class="track-tag" data-lang="de">Befreiung</span>
+              <span class="track-tag" data-lang="en">Liberation</span>
+            </li>
+          </ol>
+
+          <div class="tracklist-phases" data-lang="de">
+            <div class="phase">
+              <div class="phase-label">01–04</div>
+              <p class="phase-desc">Reise & Bewegung — Entscheidung, Wandel, Identität</p>
+            </div>
+            <div class="phase">
+              <div class="phase-label">05–08</div>
+              <p class="phase-desc">Emotion & Beziehungen — Liebe, Energie, Wurzeln</p>
+            </div>
+            <div class="phase">
+              <div class="phase-label">09–11</div>
+              <p class="phase-desc">Reflexion, Kollaboration & Befreiung</p>
+            </div>
+          </div>
+          <div class="tracklist-phases" data-lang="en">
+            <div class="phase">
+              <div class="phase-label">01–04</div>
+              <p class="phase-desc">Journey & movement — decision, change, identity</p>
+            </div>
+            <div class="phase">
+              <div class="phase-label">05–08</div>
+              <p class="phase-desc">Emotion & relationships — love, energy, roots</p>
+            </div>
+            <div class="phase">
+              <div class="phase-label">09–11</div>
+              <p class="phase-desc">Reflection, collaboration & liberation</p>
             </div>
           </div>
         </div>
