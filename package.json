@@ -1,0 +1,10 @@
+{
+  "name": "sankofa-daniel-deutschmann",
+  "version": "1.0.0",
+  "description": "Daniel Deutschmann — Deutsch-afrikanischer Künstler, Storyteller und Brückenbauer",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
