@@ -1318,6 +1318,256 @@
       color: var(--text-secondary);
     }
 
+    /* Audio Player */
+    .player {
+      margin-top: 48px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--kente-red), transparent);
+    }
+
+    .player-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .player-track-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .player-vinyl {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: conic-gradient(var(--bg-deep) 0deg, var(--earth-dark) 60deg, var(--bg-deep) 120deg, var(--earth-dark) 180deg, var(--bg-deep) 240deg, var(--earth-dark) 300deg, var(--bg-deep) 360deg);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: border-color 0.3s;
+    }
+
+    .player-vinyl.spinning {
+      animation: spin 3s linear infinite;
+      border-color: var(--gold);
+    }
+
+    .player-vinyl-hole {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .player-track-name {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .player-track-artist {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    .player-track-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* Visualizer */
+    .player-visualizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      height: 40px;
+      margin-bottom: 20px;
+    }
+
+    .viz-bar {
+      flex: 1;
+      min-width: 3px;
+      background: linear-gradient(to top, var(--gold), var(--kente-red));
+      border-radius: 2px 2px 0 0;
+      height: 4px;
+      transition: height 0.1s ease;
+    }
+
+    /* Controls */
+    .player-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .player-play-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: transparent;
+      color: var(--gold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.3s var(--transition);
+    }
+
+    .player-play-btn:hover {
+      background: var(--gold);
+      color: var(--bg-deep);
+      transform: scale(1.05);
+    }
+
+    .player-play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .player-progress-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .player-progress {
+      width: 100%;
+      height: 4px;
+      background: var(--bg-elevated);
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .player-progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, var(--gold), var(--gold-light));
+      border-radius: 4px;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .player-progress:hover .player-progress-bar {
+      height: 6px;
+      margin-top: -1px;
+    }
+
+    .player-times {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .player-time {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    .player-volume {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .player-volume-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.3s;
+    }
+
+    .player-volume-btn:hover {
+      color: var(--gold);
+    }
+
+    .player-volume-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .player-volume-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 70px;
+      height: 3px;
+      background: var(--bg-elevated);
+      border-radius: 3px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .player-volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+    }
+
+    .player-volume-slider::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      cursor: pointer;
+      border: none;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .player {
+        padding: 20px;
+      }
+
+      .player-volume {
+        display: none;
+      }
+
+      .player-vinyl {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
     .music-genres {
       display: flex;
       gap: 12px;
@@ -2192,6 +2442,50 @@
           </div>
         </div>
 
+        <!-- Audio Player -->
+        <div class="player reveal" id="audioPlayer">
+          <div class="player-label" data-lang="de">Exklusive Vorschau</div>
+          <div class="player-label" data-lang="en">Exclusive Preview</div>
+
+          <div class="player-track-info">
+            <div class="player-vinyl" id="vinyl">
+              <div class="player-vinyl-hole"></div>
+            </div>
+            <div>
+              <span class="player-track-num">Track 09</span>
+              <div class="player-track-name">Zurück in meinem Zimmer</div>
+              <div class="player-track-artist">Daniel Deutschmann</div>
+            </div>
+          </div>
+
+          <div class="player-visualizer" id="visualizer"></div>
+
+          <div class="player-controls">
+            <button class="player-play-btn" id="playBtn" aria-label="Play / Pause">
+              <svg id="playIcon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              <svg id="pauseIcon" viewBox="0 0 24 24" style="display:none"><rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/></svg>
+            </button>
+
+            <div class="player-progress-wrapper">
+              <div class="player-progress" id="progressBar">
+                <div class="player-progress-bar" id="progressFill"></div>
+              </div>
+              <div class="player-times">
+                <span class="player-time" id="currentTime">0:00</span>
+                <span class="player-time" id="duration">0:00</span>
+              </div>
+            </div>
+
+            <div class="player-volume">
+              <button class="player-volume-btn" id="muteBtn" aria-label="Mute">
+                <svg id="volumeIcon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                <svg id="muteIcon" viewBox="0 0 24 24" style="display:none"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+              </button>
+              <input type="range" class="player-volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+            </div>
+          </div>
+        </div>
+
         <div class="music-genres reveal" data-lang="de">
           <span class="genre-tag">Afro Deutschrap</span>
           <span class="genre-tag">Spoken Word</span>
@@ -2399,6 +2693,139 @@
         heroContent.style.opacity = 1 - (scrollY / window.innerHeight);
       }
     });
+
+    // ---- Audio Player ----
+    (function() {
+      const audio = new Audio('Daniel Deutschmann - Zurueck in meinem Zimmer.mp3');
+      audio.preload = 'metadata';
+      audio.volume = 0.7;
+
+      const playBtn = document.getElementById('playBtn');
+      const playIcon = document.getElementById('playIcon');
+      const pauseIcon = document.getElementById('pauseIcon');
+      const progressBar = document.getElementById('progressBar');
+      const progressFill = document.getElementById('progressFill');
+      const currentTimeEl = document.getElementById('currentTime');
+      const durationEl = document.getElementById('duration');
+      const volumeSlider = document.getElementById('volumeSlider');
+      const muteBtn = document.getElementById('muteBtn');
+      const volumeIconEl = document.getElementById('volumeIcon');
+      const muteIconEl = document.getElementById('muteIcon');
+      const vinyl = document.getElementById('vinyl');
+      const vizContainer = document.getElementById('visualizer');
+
+      let isPlaying = false;
+      let audioCtx, analyser, source, vizBars = [];
+      let audioCtxInitialized = false;
+
+      // Create visualizer bars
+      for (let i = 0; i < 48; i++) {
+        const bar = document.createElement('div');
+        bar.classList.add('viz-bar');
+        vizContainer.appendChild(bar);
+        vizBars.push(bar);
+      }
+
+      function initAudioContext() {
+        if (audioCtxInitialized) return;
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 128;
+        source = audioCtx.createMediaElementSource(audio);
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+        audioCtxInitialized = true;
+      }
+
+      function formatTime(s) {
+        if (isNaN(s)) return '0:00';
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return m + ':' + (sec < 10 ? '0' : '') + sec;
+      }
+
+      function updateVisualizer() {
+        if (!isPlaying || !analyser) return;
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        analyser.getByteFrequencyData(data);
+        const step = Math.floor(data.length / vizBars.length);
+        for (let i = 0; i < vizBars.length; i++) {
+          const val = data[i * step] || 0;
+          const h = Math.max(4, (val / 255) * 40);
+          vizBars[i].style.height = h + 'px';
+        }
+        requestAnimationFrame(updateVisualizer);
+      }
+
+      function resetVisualizer() {
+        vizBars.forEach(bar => bar.style.height = '4px');
+      }
+
+      playBtn.addEventListener('click', () => {
+        initAudioContext();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        if (isPlaying) {
+          audio.pause();
+          isPlaying = false;
+          playIcon.style.display = '';
+          pauseIcon.style.display = 'none';
+          vinyl.classList.remove('spinning');
+          resetVisualizer();
+        } else {
+          audio.play();
+          isPlaying = true;
+          playIcon.style.display = 'none';
+          pauseIcon.style.display = '';
+          vinyl.classList.add('spinning');
+          updateVisualizer();
+        }
+      });
+
+      audio.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audio.duration);
+      });
+
+      audio.addEventListener('timeupdate', () => {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        progressFill.style.width = pct + '%';
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+      });
+
+      audio.addEventListener('ended', () => {
+        isPlaying = false;
+        playIcon.style.display = '';
+        pauseIcon.style.display = 'none';
+        vinyl.classList.remove('spinning');
+        progressFill.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+        resetVisualizer();
+      });
+
+      progressBar.addEventListener('click', (e) => {
+        const rect = progressBar.getBoundingClientRect();
+        const pct = (e.clientX - rect.left) / rect.width;
+        audio.currentTime = pct * audio.duration;
+      });
+
+      volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+        audio.muted = false;
+        volumeIconEl.style.display = '';
+        muteIconEl.style.display = 'none';
+      });
+
+      muteBtn.addEventListener('click', () => {
+        audio.muted = !audio.muted;
+        if (audio.muted) {
+          volumeIconEl.style.display = 'none';
+          muteIconEl.style.display = '';
+        } else {
+          volumeIconEl.style.display = '';
+          muteIconEl.style.display = 'none';
+        }
+      });
+    })();
   </script>
 
 </body>
